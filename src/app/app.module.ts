@@ -4,13 +4,16 @@ import { ImageContainerComponent } from './image-container/image-container.compo
 
 import { AppComponent } from './app.component';
 
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+
 @NgModule({
   declarations: [
     AppComponent,
     ImageContainerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxImageZoomModule
   ],
   providers: [],
   bootstrap: [AppComponent]
