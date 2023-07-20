@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgxImgZoomService } from 'ngx-img-zoom';
 
 @Component({
   selector: 'app-image-container',
@@ -7,8 +6,20 @@ import { NgxImgZoomService } from 'ngx-img-zoom';
   styleUrls: ['./image-container.component.css']
 })
 export class ImageContainerComponent {
+  magnification = 2;
+  saturation = 100;
+
   myThumbnail = '../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg';
   myFullresImage = '../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg';
   constructor() { }
 
+  changeMagnification(event: any) {
+    this.magnification = event.currentTarget.value
+    console.log(this.magnification)
+  }
+
+  changeSaturation(event: any) {
+    this.saturation = event.currentTarget.value
+    console.log(this.saturation)
+  }
 }
