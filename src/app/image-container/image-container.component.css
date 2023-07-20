@@ -1,0 +1,9 @@
+.image-container {
+  width: 786px;
+  height: 432px;
+}
+
+::ng-deep .ngxImageZoomContainer > img {
+  width: 786px;
+  height: 432px;
+}
