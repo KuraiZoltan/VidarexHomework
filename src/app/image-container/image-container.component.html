@@ -1,3 +1,12 @@
 <div class="image-container">
-  <img src="../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" width="768" height="432" />
+  <lib-ngx-image-zoom
+    [thumbImage]=myThumbnail
+    [fullImage]=myFullresImage
+    [magnification]="2"
+    [enableScrollZoom]="true"
+    [enableLens]="true"
+    [lensWidth]="100"
+    [lensHeight]="100"
+    [circularLens]="true"
+  ></lib-ngx-image-zoom>
 </div>
