@@ -3,9 +3,9 @@
   height: 432px;
 }
 
-::ng-deep .ngxImageZoomContainer > img {
-  width: 768px;
-  height: 432px;
+.component-container {
+    display: flex;
+    flex-direction: row
 }
 
 .range-slider {
@@ -20,7 +20,17 @@
   }
 }
 
+.slider-container {
+    border: 1px solid grey;
+    margin: 1rem;
+    padding: 1rem;
+}
+
 .container {
-    display:flex;
-    flex-direction: row;
+  position: relative;
+}
+
+.tag {
+  position: absolute;
+  z-index: 1000;
 }

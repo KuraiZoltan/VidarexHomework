@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-image-container',
@@ -6,11 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./image-container.component.css']
 })
 export class ImageContainerComponent {
+  @ViewChild('lensImage') lensImage!: ElementRef<HTMLImageElement>;
+
   magnification = 2;
   saturation = 100;
 
-  myThumbnail = '../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg';
-  myFullresImage = '../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg';
+  lensLeft = 0;
+  lensTop = 0;
+
+  imageLeft = 0;
+  imageTop = 0;
+
+  onMouseMove(e: MouseEvent) {
+    this.lensLeft = e.x;
+    this.lensTop = e.y;
+    const smallImage: HTMLImageElement = <HTMLImageElement> e.target
+    var img: HTMLImageElement = this.lensImage.nativeElement;
+    this.imageLeft = this.lensLeft / smallImage.clientWidth * img.naturalWidth;
+    this.imageTop = this.lensTop / smallImage.clientHeight * img.naturalHeight;
+    console.log(smallImage.clientWidth, smallImage.clientHeight)
+    /*console.log(this.imageLeft, this.imageTop)*/
+  }
+
   constructor() { }
 
   changeMagnification(event: any) {

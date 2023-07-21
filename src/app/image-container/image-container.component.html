@@ -1,21 +1,22 @@
-<div class="container">
-  <div class="image-container">
-    <lib-ngx-image-zoom class="image" [thumbImage]=myThumbnail
-                        [fullImage]=myFullresImage
-                        [magnification]=magnification
-                        [enableScrollZoom]="true"
-                        [enableLens]="true"
-                        [lensWidth]="100"
-                        [lensHeight]="100"
-                        [circularLens]="true" style="filter: saturate({{ saturation }}%);"></lib-ngx-image-zoom>
+<div class="component-container">
+  <div class="container">
+    <div class="tag" style="overflow:hidden; z-index: 1000; max-height:100px; max-width:100px; border-radius: 50px;"
+         [style.left]="lensLeft + 'px'"
+         [style.top]="lensTop + 'px'">
+      <img src="../../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" #lensImage
+           [style.transformOrigin]="imageLeft + 'px ' +  imageTop + 'px'"
+           [style.transform]="'scale(1)'" />
+    </div>
+    <img src="../../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" width="768" height="432" (document:mousemove)="onMouseMove($event)" />
   </div>
-  <div class="range-slider">
-    <input class="input-range" orient="vertical" type="range" step="1" value="2" min="1" max="10" (change)="changeMagnification($event)">
-    <span class="range-value">Magnification from 1x-10x</span>
-  </div>
-  <div class="range-slider">
-    <input class="input-range" orient="vertical" type="range" step="1" value="100" min="0" max="100" (change)="changeSaturation($event)">
-    <span class="range-value">Saturation from 0%-100%</span>
+  <div class="slider-container container">
+    <div class="range-slider">
+      <input class="input-range" orient="vertical" type="range" step="1" value="2" min="1" max="10" (change)="changeMagnification($event)">
+      <span class="range-value">Magnification from 1x-10x</span>
+    </div>
+    <div class="range-slider">
+      <input class="input-range" orient="vertical" type="range" step="1" value="100" min="0" max="100" (change)="changeSaturation($event)">
+      <span class="range-value">Saturation from 0%-100%</span>
+    </div>
   </div>
 </div>
-
