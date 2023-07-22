@@ -1,14 +1,23 @@
-.image-container {
-  width: 768px;
-  height: 432px;
+#container {
+  position: relative;
+  width: 700px;
+  height: 500px;
 }
 
-.component-container {
-    display: flex;
-    flex-direction: row
+#lens {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.range-slider {
+#lens-photo {
+  object-fit: cover;
+}
+
+.magnification-slider {
   .input-range {
     -webkit-appearance: none;
     height: 200px;
@@ -20,17 +29,13 @@
   }
 }
 
-.slider-container {
-    border: 1px solid grey;
-    margin: 1rem;
-    padding: 1rem;
+.image-magnification-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }
 
-.container {
-  position: relative;
-}
-
-.tag {
-  position: absolute;
-  z-index: 1000;
+.magnification-slider {
+    margin-left: 2rem;
 }
