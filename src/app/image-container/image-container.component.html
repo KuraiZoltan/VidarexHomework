@@ -1,22 +1,16 @@
-<div class="component-container">
-  <div class="container">
-    <div class="tag" style="overflow:hidden; z-index: 1000; max-height:100px; max-width:100px; border-radius: 50px;"
-         [style.left]="lensLeft + 'px'"
-         [style.top]="lensTop + 'px'">
-      <img src="../../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" #lensImage
-           [style.transformOrigin]="imageLeft + 'px ' +  imageTop + 'px'"
-           [style.transform]="'scale(1)'" />
+<div class="image-magnification-container" >
+  <div id="container" (document:mouseover)="onMouseOver($event)" (document:mouseout)="onMouseOut($event)" (document:mousemove)="onMousemove($event)" (wheel)="onWheelmove($event)">
+    <div id="lens" #lens>
+      <img id="lensPhoto" src="../../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" #lensPhoto style="filter: saturate({{saturation}}%);"/>
     </div>
-    <img src="../../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" width="768" height="432" (document:mousemove)="onMouseMove($event)" />
+    <img id="photo" src="../../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" #photo style="width: 768px; height: 432px;"/>
   </div>
-  <div class="slider-container container">
-    <div class="range-slider">
-      <input class="input-range" orient="vertical" type="range" step="1" value="2" min="1" max="10" (change)="changeMagnification($event)">
-      <span class="range-value">Magnification from 1x-10x</span>
-    </div>
-    <div class="range-slider">
-      <input class="input-range" orient="vertical" type="range" step="1" value="100" min="0" max="100" (change)="changeSaturation($event)">
-      <span class="range-value">Saturation from 0%-100%</span>
-    </div>
+  <div class="range-slider magnification-slider">
+    <input class="input-range" orient="vertical" type="range" step="1" value="2" min="1" max="10" (change)="changeMagnification($event)">
+    <span class="range-value">Magnification from 1x-10x</span>
   </div>
+</div>
+<div class="range-slider saturation-slider">
+  <input class="input-range" orient="vertical" type="range" step="1" value="100" min="0" max="100" (change)="changeSaturation($event)">
+  <span class="range-value">Saturation (0%-100%)</span>
 </div>
