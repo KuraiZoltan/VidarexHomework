@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-image-container',
@@ -12,6 +13,17 @@ export class ImageContainerComponent {
   @ViewChild('lensPhoto') lensPhoto!: ElementRef<HTMLImageElement>;
   @ViewChild('magnification') magnificationElement!: ElementRef<HTMLInputElement>;
   @ViewChild('lensSaturation') lensSaturation!: ElementRef<HTMLInputElement>;
+
+  @HostListener('document:keydown', ['$event'])
+  changeSaturationOnKeydown(event: KeyboardEvent) {
+    if (event.key == 'ArrowLeft') {
+      this.saturation -= 1
+      this.lensSaturation.nativeElement.value = this.saturation.toString();
+    } else if (event.key == 'ArrowRight') {
+      this.saturation += 1
+      this.lensSaturation.nativeElement.value = this.saturation.toString();
+    }
+  }
 
   magnification = 2;
   saturation = 100;
