@@ -10,6 +10,8 @@ export class ImageContainerComponent {
   @ViewChild('container') container!: ElementRef<HTMLDivElement>;
   @ViewChild('lens') lens!: ElementRef<HTMLDivElement>;
   @ViewChild('lensPhoto') lensPhoto!: ElementRef<HTMLImageElement>;
+  @ViewChild('magnification') magnificationElement!: ElementRef<HTMLInputElement>;
+  @ViewChild('lensSaturation') lensSaturation!: ElementRef<HTMLInputElement>;
 
   magnification = 2;
   saturation = 100;
@@ -45,10 +47,14 @@ export class ImageContainerComponent {
     if (event.deltaY === -100) {
       if (this.magnification < 10) {
         this.magnification += 1;
+        this.magnificationElement.nativeElement.value = this.magnification.toString();
+        
       }
     } else {
       if (this.magnification > 1) {
         this.magnification -= 1;
+        this.magnificationElement.nativeElement.value = this.magnification.toString();
+        
       }
     }
   }

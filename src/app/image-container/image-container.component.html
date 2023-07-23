@@ -6,11 +6,11 @@
     <img id="photo" src="../../assets/18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg" #photo style="width: 768px; height: 432px;"/>
   </div>
   <div class="range-slider magnification-slider">
-    <input class="input-range" orient="vertical" type="range" step="1" value="2" min="1" max="10" (change)="changeMagnification($event)">
+    <input class="input-range" orient="vertical" type="range" step="1" value="2" min="1" max="10" (change)="changeMagnification($event)" #magnification>
     <span class="range-value">Magnification from 1x-10x</span>
   </div>
 </div>
 <div class="range-slider saturation-slider">
-  <input class="input-range" orient="vertical" type="range" step="1" value="100" min="0" max="100" (change)="changeSaturation($event)">
+  <input class="input-range" orient="vertical" type="range" step="1" value="100" min="0" max="100" (change)="changeSaturation($event)" #lensSaturation>
   <span class="range-value">Saturation (0%-100%)</span>
 </div>
